@@ -1,0 +1,96 @@
+\documentclass[t]{beamer}
+%\documentclass[c]{beamer}
+\listfiles
+
+\mode<presentation>
+{
+  \usetheme[english,titlepage0]{KIT}
+% \usetheme[usefoot]{KIT}
+% \usetheme{KIT}
+
+%%  \usefonttheme{structurebold}
+
+  \setbeamercovered{transparent}
+
+  %\setbeamertemplate{enumerate items}[circle]
+  \setbeamertemplate{enumerate items}[ball]
+
+}
+\usepackage{babel}
+\date{12.06.2014}
+%\DateText
+
+\newlength{\Ku}
+\setlength{\Ku}{1.43375pt}
+
+\usepackage[latin1]{inputenc}
+\usepackage[TS1,T1]{fontenc}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{lipsum}
+
+\usetikzlibrary{positioning,shapes,shadows,arrows}
+
+%\usenavigationsymbols
+%\usenavigationsymbols[sfHhdb]
+%\usenavigationsymbols[sfhHb]
+
+\renewcommand{\rmdefault}{phv} % Arial
+\renewcommand{\sfdefault}{phv} % Arial
+
+\title[]{TikZ Tutorial}
+\subtitle{Ewa Holt, Tanja Harbaum, Christian Amstutz%\\
+%    \href{mailto:christian.amstutz@kit.edu}{christian.amstutz@kit.edu}
+}
+
+\author[]{Ewa Holt, Tanja Harbaum, Christian Amstutz}
+
+\AuthorTitleSep{\relax}
+
+\institute[]{KSETA Doctoral Workshop 2014}
+%\institute[\raisebox{-4mm}{\includegraphics[height=5mm]{Bilder/OU-Logo}}]
+%  {KARLSRUHE INSTITUTE OF TECHNOLOGY (KIT)}
+%\logo{\includegraphics[height=12mm]{Bilder/OU-Logo}}
+\TitleImage[width=\titleimagewd]{bilder/KIT-Titel}
+
+\newlength{\tmplen}
+
+\newcommand{\verysmall}{\fontsize{6pt}{8.6pt}\selectfont}
+
+%*****************************************
+% my defintions
+%*****************************************
+
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{textgreek}
+\usepackage{adjustbox}
+\usepackage{fancyvrb}
+
+\usetikzlibrary{matrix}
+\tikzset{textoverlay/.style={align=center, fill=white, font={\color{KITgreen}}, rectangle}}
+
+%*****************************************
+% Presentation
+%*****************************************
+
+\begin{document}
+
+%*****************************************
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+%*****************************************
+
+\begin{frame}[c]
+  
+  \Huge Thank you for your attention!
+  
+\end{frame}
+
+%*****************************************
+
+\end{document}
