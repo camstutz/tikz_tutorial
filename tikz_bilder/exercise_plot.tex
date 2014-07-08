@@ -1,0 +1,18 @@
+\begin{tikzpicture}[domain=0.2:6]
+  
+  \draw[->, >=stealth'] (-0.2,0) -- (7,0) node[right] {$x$};
+  \draw[->, >=stealth'] (0,-0.2) -- (0,6) node[above] {$f(x)$};
+  
+  \foreach \x in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5}
+    \draw (\x,2pt) -- (\x,-3pt);
+  \foreach \x in {0,1,2,3,4,5,6}
+    \node at (\x,-6pt) [anchor=north] {\footnotesize $\x$};    
+  \foreach \y/\ytext in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5}
+    \draw (2pt,\y) -- (-3pt,\y cm);
+  \foreach \y/\ytext in {0,1,2,3,4,5}
+    \node at (-6pt,\y) [anchor=east] {\footnotesize $\ytext$};
+  
+  \draw plot[only marks, mark=x, mark options={blue, thick}] file {working_material/measurement.dat};
+  \draw[color=green] plot[smooth] (\x, {1+pow((1/3)*\x, 2)}) node[right] {$f(x) = 1+\frac{1}{3}x^{2}$};
+
+\end{tikzpicture}

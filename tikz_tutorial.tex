@@ -61,6 +61,9 @@
 \addbibresource{templates/example.bib}
 \bibhang1em
 
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
 \begin{document}
 
 % change the following line to "ngerman" for German style date and logos
@@ -81,6 +84,50 @@
 
 \begin{frame}{Outline/Gliederung}
 \tableofcontents
+\end{frame}
+
+%*****************************************
+\begin{frame}[fragile]{Setting up the Environment in \LaTeX}
+
+\begin{verbatim}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  % TikZ commands go here  
+\end{tikzpicture}
+\end{document}
+\end{verbatim}
+
+\end{frame}
+
+%*****************************************
+\begin{frame}{Exercise 3: Plot}
+
+\note{
+  - Using plots from different tools, these would look differently
+  - Formulas in plots
+  - Line width adaptation
+  - Scaling effects
+  - nicer view
+  
+  more information: Chapter 19 of the official documentation
+}
+
+\input{tikz_bilder/exercise_plot.tex}
+
+\end{frame}
+
+%*****************************************
+\begin{frame}{Exercise 3: Plot - Solution}
+
+\begin{tikzpicture}
+  
+\end{tikzpicture}
+
+\end{frame}
+
+%*****************************************
+\begin{frame}
 \end{frame}
 
 %*****************************************
