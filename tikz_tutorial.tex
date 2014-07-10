@@ -61,8 +61,42 @@
 \addbibresource{templates/example.bib}
 \bibhang1em
 
+%*****************************************
+% our packages
+%*****************************************
+
+\usepackage{listings}
+
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+
+%*****************************************
+% our definitions
+%*****************************************
+
+\lstdefinestyle{tikzstyle}{
+  language=[LaTeX]tex,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstnewenvironment{tikzcode}%
+{\lstset{style=tikzstyle}}%
+{}
+
+\newcommand{\tikzcodefile}[1]{\lstinputlisting[style=tikzstyle]{#1}}
+
+
+%*****************************************
+%*****************************************
+% the presentation
+%*****************************************
+%*****************************************
+
 
 \begin{document}
 
@@ -82,25 +116,46 @@
 %table of contents
 %*****************************************
 
-\begin{frame}{Outline/Gliederung}
-\tableofcontents
-\end{frame}
+%\begin{frame}{Outline/Gliederung}
+%\tableofcontents
+%\end{frame}
 
 %*****************************************
+
 \begin{frame}[fragile]{Setting up the Environment in \LaTeX}
 
-\begin{verbatim}
+\begin{tikzcode}
+\documentclass{standalone}
 \usepackage{tikz}
 \begin{document}
 \begin{tikzpicture}
   % TikZ commands go here  
 \end{tikzpicture}
 \end{document}
-\end{verbatim}
+\end{tikzcode}
 
 \end{frame}
 
 %*****************************************
+
+\begin{frame}{Scaling Effects}
+
+\begin{tikzpicture}
+  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
+  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
+    edge[<-] (KIT);
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1.5]
+  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
+  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
+    edge[<-] (KIT);
+\end{tikzpicture}
+
+\end{frame}
+
+%*****************************************
+
 \begin{frame}{Exercise 3: Plot}
 
 \note{
@@ -118,16 +173,34 @@
 \end{frame}
 
 %*****************************************
-\begin{frame}{Exercise 3: Plot - Solution}
 
-\begin{tikzpicture}
-  
-\end{tikzpicture}
+\begin{frame}[fragile]{Exercise 3: Plot - Solution}
+
+\tikzcodefile{tikz_bilder/exercise_plot.tex}
 
 \end{frame}
 
 %*****************************************
+
+\begin{frame}{More information}
+
+\end{frame}
+
+%*****************************************
+
 \begin{frame}
+
+\vspace{1cm}  
+\begin{center}
+  \begin{Huge}Thank you for your attention\end{Huge}
+\end{center}
+  
+\end{frame}
+
+%*****************************************
+
+\begin{frame}
+
 \end{frame}
 
 %*****************************************
