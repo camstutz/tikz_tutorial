@@ -23,7 +23,7 @@
 *.synctex.gz
 *.nav
 *.snm
-*.tex.bak
+*.bak
 *.run.xml
 *.bcf
 *.vrb
