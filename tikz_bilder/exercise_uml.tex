@@ -1,0 +1,25 @@
+\usetikzlibrary{shapes}
+\begin{tikzpicture}
+  
+\tikzstyle{activity}=[rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw]
+\tikzstyle{start}=[circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill]
+\tikzstyle{end}=[draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill]
+\tikzstyle{decision}=[diamond,minimum width=1cm,minimum height=1cm, draw]
+\tikzstyle{blank} = [coordinate]%[rectangle, text width=0em, text centered, rounded corners, minimum height=0em]
+
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+
+
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](decision1) -- (action2);
+\draw[->](decision1) -| (action3);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+
+\end{tikzpicture}
