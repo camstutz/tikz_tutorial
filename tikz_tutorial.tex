@@ -116,12 +116,37 @@
 %table of contents
 %*****************************************
 
-%\begin{frame}{Outline/Gliederung}
-%\tableofcontents
-%\end{frame}
+\begin{frame}{Outline/Gliederung}
+\tableofcontents
+\end{frame}
 
 %*****************************************
+\section{TikZ}
+\subsection{What is TikZ?}
+\begin{frame}{What is TikZ?}
+\end{frame}
+%*****************************************
+\subsection{Why using TikZ?}
+\begin{frame}{Why using TikZ?}
+\end{frame}
+%*****************************************
+\begin{frame}{Scaling Effects}
 
+\begin{tikzpicture}
+  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
+  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
+    edge[<-] (KIT);
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1.5]
+  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
+  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
+    edge[<-] (KIT);
+\end{tikzpicture}
+
+\end{frame}
+%*****************************************
+\section{Settings}
 \begin{frame}[fragile]{Setting up the Environment in \LaTeX}
 
 \begin{tikzcode}
@@ -139,19 +164,14 @@
 
 %*****************************************
 
-\begin{frame}{Scaling Effects}
+\section{Exercises}
+\begin{frame}{Exercise 2: UML Activity Diagram}
 
-\begin{tikzpicture}
-  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
-  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
-    edge[<-] (KIT);
-\end{tikzpicture}
+\note{
 
-\begin{tikzpicture}[scale=1.5]
-  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
-  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
-    edge[<-] (KIT);
-\end{tikzpicture}
+}
+
+\input{tikz_bilder/exercise_uml.tex}
 
 \end{frame}
 
@@ -173,15 +193,11 @@
 
 \end{frame}
 
+
 %*****************************************
+\begin{frame}[fragile]{Exercise 2: UML Activity Diagram - Solution}
 
-\begin{frame}{Exercise 2: UML Activity Diagram}
-
-\note{
-
-}
-
-\input{tikz_bilder/exercise_uml.tex}
+\tikzcodefile{tikz_bilder/exercise_uml.tex}
 
 \end{frame}
 
@@ -193,17 +209,23 @@
 
 \end{frame}
 
+
 %*****************************************
-
-\begin{frame}[fragile]{Exercise 2: UML Activity Diagram - Solution}
-
-\tikzcodefile{tikz_bilder/exercise_uml.tex}
-
+\section{Fancy Examples}
+\subsection{Polarizing Microscope}
+\begin{frame}{Fancy Examples - Polarizing Microscope}
+\input{tikz_bilder/fancy_pic.tex}
 \end{frame}
 
 %*****************************************
+\subsection{Mind Map}
+\begin{frame}{Fancy Examples - Mind Map}
+\input{tikz_bilder/mindmap.tex}
+\end{frame}
 
-\begin{frame}{More information}
+%*****************************************
+\section{}
+\begin{frame}[allowframebreaks]{More information}
 
 Website with nice TikZ examples:\\
 \href{http://www.texample.net/tikz/examples}%
@@ -222,7 +244,6 @@ TikZ Cheat Sheet - short cheatsheet far from being complete\\
   {http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}
 
 \end{frame}
-
 %*****************************************
 
 \begin{frame}
@@ -235,57 +256,13 @@ TikZ Cheat Sheet - short cheatsheet far from being complete\\
 \end{frame}
 
 %*****************************************
-
-\begin{frame}
-
-\end{frame}
-
-%*****************************************
-\section{Section 1}
-\subsection{Subsection 1.1}
-\begin{frame}{Example slide A}
-\begin{itemize}
-\item PCM, Citation: \cite{becker2008a} %\language
-\pause
-\item Bullet point 2
-\item \dots
-\end{itemize}
-\end{frame}
-
-%*****************************************
-\subsection{Subsection 1.2}
-\begin{frame}{Example slide B}
-\begin{block}{Block 1}
-\begin{itemize}
-\item Bullet point 1
-\pause
-\item Bullet point 2
-\item \dots
-\end{itemize}
-\end{block}
-\end{frame}
-
-%*****************************************
-\section{Section 2}
-\begin{frame}{Example slide C}
-\begin{exampleblock}{Example 1}
-\begin{itemize}
-\item Bullet point 1
-\pause
-\item Bullet point 2
-\item \dots
-\end{itemize}
-\end{exampleblock}
-\end{frame}
-
-%*****************************************
 \appendix
-\beginbackup
+%\beginbackup
 
-\begin{frame}[allowframebreaks]{References}
-\printbibliography
-\end{frame}
+%\begin{frame}[allowframebreaks]{References}
+%\printbibliography
+%\end{frame}
 
-\backupend
+%\backupend
 
 \end{document}

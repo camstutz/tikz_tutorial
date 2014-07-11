@@ -15,8 +15,8 @@
 
 \draw[->](start) -- (action1);
 \draw[->](action1) -- (decision1);
-\draw[->](decision1) -- (action2);
-\draw[->](decision1) -| (action3);
+\draw[->](decision1) -- node [left,very near start]{no} (action2);
+\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
 \draw[->](action3) -- (action2);
 \draw[->](action2) -- (end);
 
