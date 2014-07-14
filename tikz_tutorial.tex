@@ -67,10 +67,13 @@
 
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{ifthen}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
 
 %*****************************************
 % our definitions
@@ -129,6 +132,13 @@
 %*****************************************
 \subsection{Why using TikZ?}
 \begin{frame}{Why using TikZ?}
+\begin{itemize}
+	\item Scaling Effects
+	\item Math Environment
+	\item Loops
+	\item One Design Flow
+\end{itemize}
+
 \end{frame}
 %*****************************************
 \begin{frame}[fragile]{Scaling Effects}
@@ -159,24 +169,21 @@
 
 \end{tikzpicture}
 
-%\begin{tikzpicture}[domain=0:7.6, scale=0.5]
-%\input{tikz_bilder/sine_plot.tex}
-%\end{tikzpicture}
-%
-%\begin{tikzpicture}[domain=0:7.6, scale=1]
-%\input{tikz_bilder/sine_plot.tex}
-%\end{tikzpicture}
+\end{frame}
+%*****************************************
+\begin{frame}{Math Environment}
 
-%\includegraphics{tikz_bilder/sine_plot_standalone.pdf}
-
-%\scalebox{2}{\includegraphics{tikz_bilder/sine_plot_standalone.pdf}}
-
-
-%\scalebox{1}{\includegraphics{tikz_bilder/sine_plot_standalone.jpg}}
-
+\input{tikz_bilder/amsmath.tex}
 
 \end{frame}
 %*****************************************
+\begin{frame}{Loops}
+
+\input{tikz_bilder/loops.tex}
+
+\end{frame}
+%*****************************************
+
 \section{Settings}
 \begin{frame}[fragile]{Setting up the Environment in \LaTeX}
 
@@ -196,6 +203,7 @@
 %*****************************************
 
 \section{Exercises}
+\subsection{UML}
 \begin{frame}{Exercise 2: UML Activity Diagram}
 
 \note{
