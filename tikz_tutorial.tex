@@ -66,6 +66,7 @@
 %*****************************************
 
 \usepackage{listings}
+\usepackage{graphicx}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -77,7 +78,7 @@
 
 \lstdefinestyle{tikzstyle}{
   language=[LaTeX]tex,
-  basicstyle=\footnotesize\ttfamily,
+  basicstyle=\scriptsize\ttfamily,
   keywordstyle=\bfseries\color{green!40!black},
   commentstyle=\itshape\color{purple!40!black},
   identifierstyle=\color{blue},
@@ -130,19 +131,49 @@
 \begin{frame}{Why using TikZ?}
 \end{frame}
 %*****************************************
-\begin{frame}{Scaling Effects}
+\begin{frame}[fragile]{Scaling Effects}
 
 \begin{tikzpicture}
-  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
-  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
-    edge[<-] (KIT);
+
+\matrix[column sep=0.2cm] {
+& \node {Raster Graphic (JPG)};
+& \node {Vector Graphic (PDF)};
+& \node {TikZ};
+\\
+& \node {\includegraphics{tikz_bilder/sine_plot_standalone.jpg}};
+& \node {\includegraphics{tikz_bilder/sine_plot_standalone.pdf}};
+& \node {
+  \begin{tikzpicture}[domain=0:3.7, scale=0.5]
+  \input{tikz_bilder/sine_plot.tex}
+  \end{tikzpicture}};
+\\
+& \node {\includegraphics[clip, trim=0 15 37 0, scale=2]{tikz_bilder/sine_plot_standalone.jpg}};
+& \node {\includegraphics[clip, trim=0 15 37 0, scale=2]{tikz_bilder/sine_plot_standalone.pdf}};
+& \node {
+  \begin{tikzpicture}[domain=0:3.7, scale=1]
+  \clip (-0.5,-0.4) rectangle (2.1,2.5);
+  \input{tikz_bilder/sine_plot.tex}
+  \end{tikzpicture}};
+\\
+};
+
 \end{tikzpicture}
 
-\begin{tikzpicture}[scale=1.5]
-  \node[fill=kit-green100,minimum width=2cm] (KIT) at (0,0) {KIT};
-  \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
-    edge[<-] (KIT);
-\end{tikzpicture}
+%\begin{tikzpicture}[domain=0:7.6, scale=0.5]
+%\input{tikz_bilder/sine_plot.tex}
+%\end{tikzpicture}
+%
+%\begin{tikzpicture}[domain=0:7.6, scale=1]
+%\input{tikz_bilder/sine_plot.tex}
+%\end{tikzpicture}
+
+%\includegraphics{tikz_bilder/sine_plot_standalone.pdf}
+
+%\scalebox{2}{\includegraphics{tikz_bilder/sine_plot_standalone.pdf}}
+
+
+%\scalebox{1}{\includegraphics{tikz_bilder/sine_plot_standalone.jpg}}
+
 
 \end{frame}
 %*****************************************
@@ -195,7 +226,7 @@
 
 
 %*****************************************
-\begin{frame}[fragile]{Exercise 2: UML Activity Diagram - Solution}
+\begin{frame}[fragile, allowframebreaks]{Exercise 2:\\ UML Activity Diagram - Solution}
 
 \tikzcodefile{tikz_bilder/exercise_uml.tex}
 
