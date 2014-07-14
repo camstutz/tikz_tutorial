@@ -66,10 +66,12 @@
 %*****************************************
 
 \usepackage{listings}
+\usepackage{amsmath,amssymb}
 
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
+\usetikzlibrary{shapes,snakes}
 
 %*****************************************
 % our definitions
@@ -143,6 +145,12 @@
   \node[fill=kit-green100,minimum width=2cm] (KSETA) at (0,-2) {KSETA}
     edge[<-] (KIT);
 \end{tikzpicture}
+
+\end{frame}
+%*****************************************
+\begin{frame}{Math Environment}
+
+\input{tikz_bilder/amsmath.tex}
 
 \end{frame}
 %*****************************************
