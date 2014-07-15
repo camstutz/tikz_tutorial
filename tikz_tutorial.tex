@@ -140,19 +140,20 @@
 	\item Automatic Graph Generation (Loops)
 \end{itemize}
 
-But! Be warned, it is not easy to learn.
+But be warned! It is not easy to learn.
 
 \end{frame}
+
 %*****************************************
+
 \begin{frame}[fragile]{Scaling Effects}
 
 \begin{tikzpicture}
-
-\matrix[column sep=0.2cm] {
+\matrix[column sep=0.5cm] {
 & \node {Raster Graphic (JPG)};
 & \node {Vector Graphic (PDF)};
 & \node {TikZ};
-\\
+\\[2mm]
 & \node {\includegraphics{tikz_bilder/sine_plot_standalone.jpg}};
 & \node {\includegraphics{tikz_bilder/sine_plot_standalone.pdf}};
 & \node {
@@ -169,37 +170,151 @@ But! Be warned, it is not easy to learn.
   \end{tikzpicture}};
 \\
 };
-
 \end{tikzpicture}
 
 \end{frame}
+
 %*****************************************
+
 \begin{frame}{Math Environment}
 
 \input{tikz_bilder/amsmath.tex}
 
 \end{frame}
+
 %*****************************************
+
 \begin{frame}{Loops}
 
 \input{tikz_bilder/loops.tex}
 
 \end{frame}
+
 %*****************************************
 
-\section{Settings}
+\section{Commands}
 \begin{frame}[fragile]{Setting up the Environment in \LaTeX}
 
 \begin{tikzcode}
 \documentclass{standalone}
+
 \usepackage{tikz}
 \usetikzlibrary{ ... }
+
 \begin{document}
+
 \begin{tikzpicture}
   % TikZ commands go here  
 \end{tikzpicture}
+
 \end{document}
 \end{tikzcode}
+
+\end{frame}
+
+%*****************************************
+
+\begin{frame}{Coordinates}
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%*****************************************
+
+\begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{tikzcode}
+  \draw (0,0) -- (1,1);
+  \draw[->] (1,1) -- (1,0);
+  \draw (0,0) rectangle (1,1);
+  \draw (1,1) circle [radius=0.5];
+  \end{tikzcode}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \begin{tikzpicture}
+    \draw (0,0) -- (1,1);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw[->] (1,1) -- (1,0);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (1,1);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw (1,1) circle [radius=0.5];
+  \end{tikzpicture}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%*****************************************
+
+\begin{frame}{Nodes}
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%*****************************************
+
+\begin{frame}[fragile]{Style Definitions}
+
+Styles are defined by \texttt{[]} behind a command
+
+\begin{minipage}{0.80\textwidth}
+\begin{tikzcode}
+\draw[red, very thick, dashed] (0,0) -- (1,0.1);
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.15\textwidth}
+\begin{tikzpicture}
+  \draw[red, very thick, dashed] (0,0,) -- (1,0.1);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1em}
+
+Styles can be named and defined locally or globally
+
+\begin{tikzcode}
+\tikzset{my style/.style={tikz options}}
+\tikzstyle{my style}=[tikz options]       % deprecated
+\end{tikzcode}
+
+\vspace{1em}
+
+example
+
+\begin{minipage}{0.9\textwidth}
+\begin{tikzcode}
+\tikzset{my dot/.style={blue, fill=green, thick}}
+\draw[my dot] (0,0) circle [radius=0.1];
+\draw[my dot] (0.1,0.4) circle [radius=0.1];
+\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.05\textwidth}
+\begin{tikzpicture}
+\tikzset{my dot/.style={blue, fill=green, thick}}
+\draw[my dot] (0,0) circle [radius=0.1];
+\draw[my dot] (0.1,0.4) circle [radius=0.1];
+\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\end{tikzpicture}
+\end{minipage}
 
 \end{frame}
 
