@@ -74,6 +74,7 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,snakes}
+\usetikzlibrary{decorations.markings}
 
 %*****************************************
 % our definitions
@@ -144,6 +145,7 @@
 	\item Better Looking Image Scaling
 	\item Math Environment within Graphics
 	\item Automatic Graph Generation (Loops)
+	\item combined with \LaTeX-Beamer class: graphics for presentations 
 \end{itemize}
 
 But be warned! It is not easy to learn.
@@ -327,6 +329,18 @@ example
 %*****************************************
 
 \section{Exercises}
+
+\subsection{Feynman-Diagram}
+
+\begin{frame}{Exercise 1: Feynman Diagram}
+
+\input{tikz_bilder/exercise_feynman.tex}
+  
+\end{frame}
+  
+%*****************************************
+  
+
 \subsection{UML}
 \begin{frame}{Exercise 2: UML Activity Diagram}
 
@@ -339,6 +353,8 @@ example
 \end{frame}
 
 %*****************************************
+
+\subsection{Plotting Data}
 
 \begin{frame}{Exercise 3: Plot}
 
@@ -356,8 +372,16 @@ example
 
 \end{frame}
 
+%*****************************************
+
+\begin{frame}[fragile, allowframebreaks]{Exercise 1: Feynman Diagram}
+
+\tikzcodefile{tikz_bilder/exercise_feynman.tex}
+  
+\end{frame}
 
 %*****************************************
+
 \begin{frame}[fragile, allowframebreaks]{Exercise 2:\\ UML Activity Diagram - Solution}
 
 \tikzcodefile{tikz_bilder/exercise_uml.tex}
