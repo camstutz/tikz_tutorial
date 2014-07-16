@@ -1,0 +1,29 @@
+\begin{tikzpicture}[xscale=0.5, yscale=0.5]
+    \draw[help lines] (0,0) grid (10,10);
+    \draw[thick] (0.5,5) -- (3.5,8);
+    \draw[-latex,thick] (1.5,6) -- (2,6.5);
+    \node[above] at (2,6.5){q};
+    \draw [fill] (3.5,8) circle [radius=0.1];
+    \draw [domain=3.5:6.5, thick, samples=200] plot (\x,{8+0.1*sin(1000*\x)});
+    \node[above] at (5,8){W};
+    \draw [fill] (6.5,8) circle [radius=0.1];
+    \draw[thick] (6.5,8) -- (9.5,5);
+    \draw[-latex,thick] (7.5,7) -- (8,6.5);
+    \node[above] at (8,6.5){q};
+    \draw[thick,decoration={markings, mark=at position 0.6 with {\arrow{latex}}},postaction={decorate}] 
+    		(3.5,8) to [out=-90, in=160] (5,5);
+    	\node[left] at (3.7,6.5){q};
+    	\draw[thick,decoration={markings, mark=at position 0.5 with {\arrow{latex}}},postaction={decorate}] 
+    		(5,5) to [out=20, in=270] (6.5,8);
+    	\node[right] at (6.3,6.5){q};
+    \draw [fill] (5,5) circle [radius=0.1];
+    \draw [domain=4:5, thick, samples=200, rotate=90] plot (\x,{-5+0.1*sin(1000*\x)});
+    \node[right] at (5,4.5){g};
+    \draw [fill] (5,4) circle [radius=0.1];
+    \draw[thick] (2,3) -- (5,4);
+    \draw[-latex,thick] (2,3) -- (3.5,3.5);
+	\node[above] at (3.5,3.5){q};
+    \draw[thick] (5,4) -- (8,3);
+    \draw[-latex,thick] (5,4) -- (6.5,3.5);
+    \node[above] at (6.5,3.5){q};
+\end{tikzpicture}
