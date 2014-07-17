@@ -9,6 +9,7 @@
 \tikzstyle{every node}=[rectangle, draw]
 \tikzstyle{blank} = [coordinate]
 
+\node[rectangle,draw, thick, fill=red!20, minimum width=23mm,minimum height=14mm](box)at(0.4,-1.4){};
 
     \foreach \x in {0,1,2,3} {
         \node[draw=none,minimum width=12mm] at (2.5*\x,0) (word\x0) {\footnotesize Layer \x};
@@ -43,6 +44,8 @@
 \path (word\x\next.north west) -- (word\x\next.north east) coordinate[pos=\d] (b);
 \draw[] (a) -- (b);
 }}
+
+
 }
 
 \end{tikzpicture}

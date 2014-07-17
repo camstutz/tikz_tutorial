@@ -70,6 +70,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{ifthen}
 
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -129,6 +130,7 @@
 \section{TikZ}
 \subsection{What is TikZ?}
 \begin{frame}{What is TikZ?}
+%\input{tikz_bilder/lindenmayer-systems.tex}
 \end{frame}
 %*****************************************
 \subsection{Why using TikZ?}
@@ -260,14 +262,55 @@ But be warned! It is not easy to learn.
 
 %*****************************************
 
-\begin{frame}{Nodes}
+\begin{frame}[fragile]{The \texttt{\textbackslash note} Command}
 
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-  \end{column}
-\end{columns}
+A node is typically a rectangle or circle or another simple shape with some text on it
+
+\begin{minipage}{0.80\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect) {Rectangle};
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.15\textwidth}
+\begin{tikzpicture}
+  \node[rectangle,fill=green](rect) {Rectangle};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1em}
+
+
+Node positioning
+
+\begin{minipage}{0.85\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.1\textwidth}
+\begin{tikzpicture}[scale=0.5,transform shape]
+  \node[rectangle,fill=green](rect) {Rectangle};
+ \node[circle,fill=purple, below = of rect] (circ) {Circle};
+\end{tikzpicture}
+\end{minipage}
+
+Connect nodes with lines
+
+\begin{minipage}{0.85\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\draw[->] (rect) -- (circ);
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.1\textwidth}
+\begin{tikzpicture}[scale=0.5,transform shape]
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\draw[->] (rect) -- (circ);
+\end{tikzpicture}
+\end{minipage}
 
 \end{frame}
 
