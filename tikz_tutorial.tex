@@ -76,6 +76,7 @@
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes,snakes}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc}
 
 %*****************************************
 % our definitions
@@ -130,16 +131,20 @@
 \section{TikZ}
 \subsection{What is TikZ?}
 \begin{frame}{What is TikZ?}
-<<<<<<< HEAD
-%\input{tikz_bilder/lindenmayer-systems.tex}
-=======
 
+\begin{minipage}{0.70\textwidth}
 \begin{itemize}
   \item Language for creating vector graphics in \LaTeX{}
   \item TikZ = \alert{T}ikZ \alert{i}st \alert{k}ein \alert{Z}eichenprogramm
 \end{itemize}
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+\input{tikz_bilder/helix.tex}
+\end{minipage}
 
->>>>>>> a287a8fbd70d4c8ce651d22f98817d0699e6c0c0
+
+
+
 \end{frame}
 %*****************************************
 \subsection{Why using TikZ?}
@@ -373,6 +378,153 @@ example
 \end{frame}
 
 %*****************************************
+  
+
+\subsection{UML}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{start/.style	={circle,minimum width=0.3cm,
+                       minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\subsection{UML}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{activity/.style={rectangle,minimum width=1cm,
+                 minimum height=0.5cm, rounded corners=5pt, draw}}
+\node[activity, below of = start] (action1) {wake up};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\subsection{UML}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{decision/.style={diamond,minimum width=1cm,
+                         minimum height=1cm, draw}}
+\node[decision,below = of  action1](decision1){tired?};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\subsection{UML}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\node[activity, below = of decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\subsection{UML}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{end/.style={draw,double=white, circle,
+               inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[end,below of = action2](end){};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\begin{frame}{Exercise 1: UML Activity Diagram}
+
+\note{
+
+}
+
+\input{tikz_bilder/exercise_uml.tex}
+
+\end{frame}
+
+%*****************************************
 
 \section{Exercises}
 
@@ -384,19 +536,7 @@ example
   
 \end{frame}
   
-%*****************************************
-  
 
-\subsection{UML}
-\begin{frame}{Exercise 2: UML Activity Diagram}
-
-\note{
-
-}
-
-\input{tikz_bilder/exercise_uml.tex}
-
-\end{frame}
 
 %*****************************************
 
