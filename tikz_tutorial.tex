@@ -211,6 +211,7 @@ But be warned! It is not easy to learn.
 %*****************************************
 
 \section{Commands}
+\subsection{Setting Environment}
 \begin{frame}[fragile]{Setting up the Environment in \LaTeX}
 
 \begin{tikzcode}
@@ -231,7 +232,7 @@ But be warned! It is not easy to learn.
 \end{frame}
 
 %*****************************************
-
+\subsection{Coordinates}
 \begin{frame}{Coordinates}
 
 \begin{columns}
@@ -244,7 +245,7 @@ But be warned! It is not easy to learn.
 \end{frame}
 
 %*****************************************
-
+\subsection{draw Command}
 \begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
 
 \begin{columns}
@@ -275,8 +276,8 @@ But be warned! It is not easy to learn.
 \end{frame}
 
 %*****************************************
-
-\begin{frame}[fragile]{The \texttt{\textbackslash note} Command}
+\subsection{node Command}
+\begin{frame}[fragile]{The \texttt{\textbackslash node} Command}
 
 A node is typically a rectangle or circle or another simple shape with some text on it
 
@@ -329,7 +330,7 @@ Connect nodes with lines
 \end{frame}
 
 %*****************************************
-
+\subsection{style Definition}
 \begin{frame}[fragile]{Style Definitions}
 
 Styles are defined by \texttt{[]} behind a command
@@ -379,8 +380,21 @@ example
 
 %*****************************************
   
+\section{Exercises}
+\subsection{UML Activity Diagram}
+\begin{frame}{Exercise 1: UML Activity Diagram}
 
-\subsection{UML}
+\note{
+
+}
+
+\input{tikz_bilder/exercise_uml.tex}
+
+\end{frame}
+
+%*****************************************  
+
+
 \begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
 
@@ -403,7 +417,7 @@ example
 %*****************************************
   
 
-\subsection{UML}
+
 \begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
 
@@ -428,7 +442,7 @@ example
 %*****************************************
   
 
-\subsection{UML}
+
 \begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
 
@@ -455,7 +469,7 @@ example
 %*****************************************
   
 
-\subsection{UML}
+
 \begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
 
@@ -483,7 +497,7 @@ example
 %*****************************************
   
 
-\subsection{UML}
+
 \begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
 
@@ -514,19 +528,82 @@ example
 %*****************************************
   
 
-\begin{frame}{Exercise 1: UML Activity Diagram}
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
 
-\note{
 
-}
+\begin{tikzcode}
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\end{tikzcode}
 
-\input{tikz_bilder/exercise_uml.tex}
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\draw[->](decision1) -- node [left,very near start]{no} (action2);
+\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\draw[->](decision1) -- node [left,very near start]{no} (action2);
+\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
+\end{tikzpicture}
+
+\end{frame}
+%*****************************************
+
+\begin{frame}[fragile, allowframebreaks]{Exercise 1:\\ UML Activity Diagram - Solution}
+
+\tikzcodefile{tikz_bilder/exercise_uml.tex}
 
 \end{frame}
 
 %*****************************************
 
-\section{Exercises}
+
 
 \subsection{Feynman-Diagram}
 
@@ -566,13 +643,7 @@ example
   
 \end{frame}
 
-%*****************************************
 
-\begin{frame}[fragile, allowframebreaks]{Exercise 2:\\ UML Activity Diagram - Solution}
-
-\tikzcodefile{tikz_bilder/exercise_uml.tex}
-
-\end{frame}
 
 %*****************************************
 
@@ -603,15 +674,15 @@ example
 Website with nice TikZ examples:\\
 \href{http://www.texample.net/tikz/examples}%
   {http://www.texample.net/tikz/examples}
-
+\vspace{1em}
 A very minimal introduction to TikZ - A good short introduction\\
 \href{http://cremeronline.com/LaTeX/minimaltikz.pdf}%
   {http://cremeronline.com/LaTeX/minimaltikz.pdf}
-
+\vspace{1em}
 TikZ \ PGF Manual (Version 3.0) - great resource written in clear, comprehensible language\\
 \href{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}%
   {http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf} (Version 3.0)
-
+\vspace{1em}
 TikZ Cheat Sheet - short cheatsheet far from being complete\\
 \href{http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}%
   {http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}
