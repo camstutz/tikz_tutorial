@@ -245,46 +245,116 @@ But be warned! It is not easy to learn.
 \end{frame}
 
 %*****************************************
-\subsection{Coordinates}
-\begin{frame}{Coordinates}
+\subsection{draw Command}
+\begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
 
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-  \end{column}
-\end{columns}
+\begin{minipage}{0.55\textwidth}
+\begin{tikzcode}
+\draw (0,0) -- (1,1);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) -- (1,1);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{2em}
+
+\begin{minipage}{0.55\textwidth}
+\begin{tikzcode}
+\draw (0,0) rectangle (1,1);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+\begin{tikzpicture}
+  \draw (0,0) rectangle (1,1);
+\end{tikzpicture}
+\end{minipage}
+  
+\vspace{2em}
+  
+\begin{minipage}{0.55\textwidth}
+\begin{tikzcode}
+\draw (1,1) circle (0.5);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+  \begin{tikzpicture}
+  \draw (1,1) circle (0.5);
+\end{tikzpicture}
+\end{minipage}
 
 \end{frame}
 
 %*****************************************
-\subsection{draw Command}
-\begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
+\subsection{Coordinates}
+\begin{frame}[fragile]{Coordinates}
 
-\begin{columns}
-  \begin{column}{0.5\textwidth}
-  \begin{tikzcode}
-  \draw (0,0) -- (1,1);
-  \draw[->] (1,1) -- (1,0);
-  \draw (0,0) rectangle (1,1);
-  \draw (1,1) circle [radius=0.5];
-  \end{tikzcode}
-  \end{column}
-  \begin{column}{0.5\textwidth}
-  \begin{tikzpicture}
-    \draw (0,0) -- (1,1);
-  \end{tikzpicture}\\
-  \begin{tikzpicture}
-    \draw[->] (1,1) -- (1,0);
-  \end{tikzpicture}\\
-  \begin{tikzpicture}
-    \draw (0,0) rectangle (1,1);
-  \end{tikzpicture}\\
-  \begin{tikzpicture}
-    \draw (1,1) circle [radius=0.5];
-  \end{tikzpicture}
-  \end{column}
-\end{columns}
+\begin{minipage}{0.78\textwidth}
+Cartesian Coordinates
+\begin{tikzcode}
+\draw[blue] (0,0) -- (2,1);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+\begin{tikzpicture}[scale=0.8]
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[thick,blue] (0,0) -- (2,1);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1ex}
+
+\begin{minipage}{0.78\textwidth}
+Polar coordinates
+\begin{tikzcode}
+\draw[blue] (0,0) -- (45:1.7);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+\begin{tikzpicture}[scale=0.8]
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[thick, blue] (0,0) -- (45:1.7);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1ex}
+  
+\begin{minipage}{0.78\textwidth}
+Relative Coordinates
+\begin{tikzcode}
+\draw[blue] (0,0) -- ++(0.5,0.5) -- ++(1,0) --
+            ++(0.5,0.5);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+  \begin{tikzpicture}[scale=0.8]
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[thick, blue] (0,0) -- ++(0.5,0.5) -- ++(1,0) -- ++(0.5,0.5);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1ex}
+
+\begin{minipage}{0.78\textwidth}
+Define Coordinates
+\begin{tikzcode}
+\coordinate (A) at (0,0);
+\coordinate (B) at (1,1);
+\coordinate (C) at (2,0);
+\draw[blue] (A) -- (B) -- (C);
+\end{tikzcode}
+\end{minipage}%
+\begin{minipage}{0.2\textwidth}
+  \begin{tikzpicture}[scale=0.8]
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (1,1);
+  \coordinate (C) at (2,0);
+  \draw[thick, blue] (A) -- (B) -- (C);
+\end{tikzpicture}
+\end{minipage}
 
 \end{frame}
 
@@ -698,7 +768,7 @@ example
 
 %*****************************************
 \section{}
-\newcommand{\reflink}[2]{#1\\\hspace{1.5em}{\color{blue}\begin{small}\href{#2}{#2}\end{small}}\\[1ex]}
+\newcommand{\reflink}[2]{#1\\\hspace{1.5em}{\color{kit-blue100}\begin{small}\href{#2}{#2}\end{small}}\\[1ex]}
 \begin{frame}{More information}
 
 \reflink{Website with nice TikZ examples:}%
@@ -713,7 +783,7 @@ example
 \reflink{TikZ Cheat Sheet - Short cheatsheet far from being complete:}%
 {http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}
 
-\reflink{This tutorial with all the sources}%
+\reflink{This tutorial with all the sources:}%
 {https://github.com/camstutz/tikz\_tutorial}
 
 \end{frame}
