@@ -148,6 +148,7 @@
 \begin{itemize}
   \item Language for creating vector graphics in \LaTeX{}
   \item TikZ = \alert{T}ikZ \alert{i}st \alert{k}ein \alert{Z}eichenprogramm
+  \item Same author as the Beamer class
 \end{itemize}
 %\end{minipage}
 %\begin{minipage}{0.25\textwidth}
@@ -243,498 +244,498 @@ But be warned! It is not easy to learn.
 
 \end{frame}
 
-%%*****************************************
-%\subsection{Coordinates}
-%\begin{frame}{Coordinates}
-%
-%\begin{columns}
-%  \begin{column}{0.5\textwidth}
-%  \end{column}
-%  \begin{column}{0.5\textwidth}
-%  \end{column}
-%\end{columns}
-%
+%*****************************************
+\subsection{Coordinates}
+\begin{frame}{Coordinates}
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%*****************************************
+\subsection{draw Command}
+\begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
+
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+  \begin{tikzcode}
+  \draw (0,0) -- (1,1);
+  \draw[->] (1,1) -- (1,0);
+  \draw (0,0) rectangle (1,1);
+  \draw (1,1) circle [radius=0.5];
+  \end{tikzcode}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+  \begin{tikzpicture}
+    \draw (0,0) -- (1,1);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw[->] (1,1) -- (1,0);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (1,1);
+  \end{tikzpicture}\\
+  \begin{tikzpicture}
+    \draw (1,1) circle [radius=0.5];
+  \end{tikzpicture}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%*****************************************
+\subsection{node Command}
+\begin{frame}[fragile]{The \texttt{\textbackslash node} Command}
+
+A node is typically a rectangle or circle or another simple shape with some text on it
+
+\begin{minipage}{0.80\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect) {Rectangle};
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.15\textwidth}
+\begin{tikzpicture}
+  \node[rectangle,fill=green](rect) {Rectangle};
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1em}
+
+
+Node positioning
+
+\begin{minipage}{0.85\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.1\textwidth}
+\begin{tikzpicture}[scale=0.5,transform shape]
+  \node[rectangle,fill=green](rect) {Rectangle};
+ \node[circle,fill=purple, below = of rect] (circ) {Circle};
+\end{tikzpicture}
+\end{minipage}
+
+Connect nodes with lines
+
+\begin{minipage}{0.85\textwidth}
+\begin{tikzcode}
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\draw[->] (rect) -- (circ);
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.1\textwidth}
+\begin{tikzpicture}[scale=0.5,transform shape]
+\node[rectangle,fill=green](rect){Rectangle};
+\node[circle,fill=purple,below=of rect](circ){Circle};
+\draw[->] (rect) -- (circ);
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
+
+%*****************************************
+\subsection{style Definition}
+\begin{frame}[fragile]{Style Definitions}
+
+Styles are defined by \texttt{[]} behind a command
+
+\begin{minipage}{0.80\textwidth}
+\begin{tikzcode}
+\draw[red, very thick, dashed] (0,0) -- (1,0.1);
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.15\textwidth}
+\begin{tikzpicture}
+  \draw[red, very thick, dashed] (0,0,) -- (1,0.1);
+\end{tikzpicture}
+\end{minipage}
+
+\vspace{1em}
+
+Styles can be named and defined locally or globally
+
+\begin{tikzcode}
+\tikzset{my style/.style={tikz options}}
+\tikzstyle{my style}=[tikz options]       % deprecated
+\end{tikzcode}
+
+\vspace{1em}
+
+example
+
+\begin{minipage}{0.9\textwidth}
+\begin{tikzcode}
+\tikzset{my dot/.style={blue, fill=green, thick}}
+\draw[my dot] (0,0) circle [radius=0.1];
+\draw[my dot] (0.1,0.4) circle [radius=0.1];
+\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\end{tikzcode}
+\end{minipage}
+\begin{minipage}{0.05\textwidth}
+\begin{tikzpicture}
+\tikzset{my dot/.style={blue, fill=green, thick}}
+\draw[my dot] (0,0) circle [radius=0.1];
+\draw[my dot] (0.1,0.4) circle [radius=0.1];
+\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
+
+%*****************************************
+  
+\section{Exercises}
+\subsection{UML Activity Diagram}
+\begin{frame}{Exercise 1: UML Activity Diagram}
+
+\note{
+
+}
+
+\input{tikz_bilder/exercise_uml.tex}
+
+\end{frame}
+
+%*****************************************  
+
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{start/.style	={circle,minimum width=0.3cm,
+                       minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{activity/.style={rectangle,minimum width=1cm,
+                 minimum height=0.5cm, rounded corners=5pt, draw}}
+\node[activity, below of = start] (action1) {wake up};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{decision/.style={diamond,minimum width=1cm,
+                         minimum height=1cm, draw}}
+\node[decision,below = of  action1](decision1){tired?};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\node[activity, below = of decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\tikzset{end/.style={draw,double=white, circle,
+               inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[end,below of = action2](end){};
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\end{tikzpicture}
+
+
+\end{frame}
+
+%*****************************************
+  
+
+\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
+
+
+\begin{tikzcode}
+\draw[->](decision1) -- node [left,very near start]{no} (action2);
+\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
+\end{tikzcode}
+
+\vspace{1em}
+
+\begin{tikzpicture}[scale=0.7,transform shape]
+\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
+\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
+\node[start] (start) {};
+\node[activity, below of = start] (action1) {wake up};
+\node[decision,below = of  action1](decision1){tired?};
+\node[activity, below = of  decision1] (action2) {start the day};
+\node[activity, right = of action2] (action3) {drink coffee};
+\node[end,below of = action2](end){};
+\draw[->](start) -- (action1);
+\draw[->](action1) -- (decision1);
+\draw[->](action3) -- (action2);
+\draw[->](action2) -- (end);
+\draw[->](decision1) -- node [left,very near start]{no} (action2);
+\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
+\end{tikzpicture}
+
+\end{frame}
+%*****************************************
+
+\begin{frame}[fragile, allowframebreaks]{Exercise 1: UML Activity Diagram - Solution}
+
+\tikzcodefile{tikz_bilder/exercise_uml.tex}
+
+\end{frame}
+
+%*****************************************
+
+\section{outlook}
+
+\subsection{Feynman-Diagram}
+
+\begin{frame}{Feynman Diagram}
+
+\input{tikz_bilder/exercise_feynman.tex}
+  
+\end{frame}
+  
+
+
+%*****************************************
+
+
+
+\begin{frame}[fragile, allowframebreaks]{ Feynman Diagram - Code}
+
+\tikzcodefile{tikz_bilder/exercise_feynman.tex}
+  
+\end{frame}
+
+
+
+%*****************************************
+
+\subsection{Plotting Data}
+
+\begin{frame}{Plotting Data}
+
+\note{
+  - Using plots from different tools, these would look differently
+  - Formulas in plots
+  - Line width adaptation
+  - Scaling effects
+  - nicer view
+  
+  more information: Chapter 19 of the official documentation
+}
+
+\input{tikz_bilder/exercise_plot.tex}
+
+\end{frame}
+
+%*****************************************
+
+\begin{frame}[fragile]{Plotting data - Code}
+
+\tikzcodefile{tikz_bilder/exercise_plot.tex}
+
+\end{frame}
+%*****************************************
+\subsection{Mind Map}
+\begin{frame}{Mind Map}
+\input{tikz_bilder/mindmap.tex}
+\end{frame}
+
+%*****************************************
+
+\begin{frame}[fragile, allowframebreaks]{Mind Map - Code}
+
+\tikzcodefile{tikz_bilder/mindmap.tex}
+
+\end{frame}
+
+
+%*****************************************
+\section{Fancy Examples}
+\subsection{Polarizing Microscope}
+\begin{frame}{Fancy Examples - Polarizing Microscope}
+\input{tikz_bilder/fancy_pic.tex}
+\end{frame}
+
+%*****************************************
+
+\subsection{Polarizing Microscope}
+\begin{frame}{Fancy Examples - Polarizing Microscope}
+\input{tikz_bilder/magnetic.tex}
+\end{frame}
+
+%*****************************************
+\section{}
+\newcommand{\reflink}[2]{#1\\\hspace{1.5em}{\color{blue}\begin{small}\href{#2}{#2}\end{small}}\\[1ex]}
+\begin{frame}{More information}
+
+\reflink{Website with nice TikZ examples:}%
+{http://www.texample.net/tikz/examples}
+
+\reflink{A very minimal introduction to TikZ - A short and good introduction:}%
+{http://cremeronline.com/LaTeX/minimaltikz.pdf}
+
+\reflink{TikZ \ PGF Manual (Version 3.0) - great resource written in clear, comprehensible language:}%
+{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}
+
+\reflink{TikZ Cheat Sheet - Short cheatsheet far from being complete:}%
+{http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}
+
+\reflink{This tutorial with all the sources}%
+{https://github.com/camstutz/tikz\_tutorial}
+
+\end{frame}
+%*****************************************
+
+\begin{frame}
+
+\vspace{1cm}  
+\begin{center}
+  \begin{Huge}Thank you for your attention\end{Huge}
+\end{center}
+  
+\end{frame}
+
+%*****************************************
+\appendix
+%\beginbackup
+
+%\begin{frame}[allowframebreaks]{References}
+%\printbibliography
 %\end{frame}
-%
-%%*****************************************
-%\subsection{draw Command}
-%\begin{frame}[fragile]{The \texttt{\textbackslash draw} Command}
-%
-%\begin{columns}
-%  \begin{column}{0.5\textwidth}
-%  \begin{tikzcode}
-%  \draw (0,0) -- (1,1);
-%  \draw[->] (1,1) -- (1,0);
-%  \draw (0,0) rectangle (1,1);
-%  \draw (1,1) circle [radius=0.5];
-%  \end{tikzcode}
-%  \end{column}
-%  \begin{column}{0.5\textwidth}
-%  \begin{tikzpicture}
-%    \draw (0,0) -- (1,1);
-%  \end{tikzpicture}\\
-%  \begin{tikzpicture}
-%    \draw[->] (1,1) -- (1,0);
-%  \end{tikzpicture}\\
-%  \begin{tikzpicture}
-%    \draw (0,0) rectangle (1,1);
-%  \end{tikzpicture}\\
-%  \begin{tikzpicture}
-%    \draw (1,1) circle [radius=0.5];
-%  \end{tikzpicture}
-%  \end{column}
-%\end{columns}
-%
-%\end{frame}
-%
-%%*****************************************
-%\subsection{node Command}
-%\begin{frame}[fragile]{The \texttt{\textbackslash node} Command}
-%
-%A node is typically a rectangle or circle or another simple shape with some text on it
-%
-%\begin{minipage}{0.80\textwidth}
-%\begin{tikzcode}
-%\node[rectangle,fill=green](rect) {Rectangle};
-%\end{tikzcode}
-%\end{minipage}
-%\begin{minipage}{0.15\textwidth}
-%\begin{tikzpicture}
-%  \node[rectangle,fill=green](rect) {Rectangle};
-%\end{tikzpicture}
-%\end{minipage}
-%
-%\vspace{1em}
-%
-%
-%Node positioning
-%
-%\begin{minipage}{0.85\textwidth}
-%\begin{tikzcode}
-%\node[rectangle,fill=green](rect){Rectangle};
-%\node[circle,fill=purple,below=of rect](circ){Circle};
-%\end{tikzcode}
-%\end{minipage}
-%\begin{minipage}{0.1\textwidth}
-%\begin{tikzpicture}[scale=0.5,transform shape]
-%  \node[rectangle,fill=green](rect) {Rectangle};
-% \node[circle,fill=purple, below = of rect] (circ) {Circle};
-%\end{tikzpicture}
-%\end{minipage}
-%
-%Connect nodes with lines
-%
-%\begin{minipage}{0.85\textwidth}
-%\begin{tikzcode}
-%\node[rectangle,fill=green](rect){Rectangle};
-%\node[circle,fill=purple,below=of rect](circ){Circle};
-%\draw[->] (rect) -- (circ);
-%\end{tikzcode}
-%\end{minipage}
-%\begin{minipage}{0.1\textwidth}
-%\begin{tikzpicture}[scale=0.5,transform shape]
-%\node[rectangle,fill=green](rect){Rectangle};
-%\node[circle,fill=purple,below=of rect](circ){Circle};
-%\draw[->] (rect) -- (circ);
-%\end{tikzpicture}
-%\end{minipage}
-%
-%\end{frame}
-%
-%%*****************************************
-%\subsection{style Definition}
-%\begin{frame}[fragile]{Style Definitions}
-%
-%Styles are defined by \texttt{[]} behind a command
-%
-%\begin{minipage}{0.80\textwidth}
-%\begin{tikzcode}
-%\draw[red, very thick, dashed] (0,0) -- (1,0.1);
-%\end{tikzcode}
-%\end{minipage}
-%\begin{minipage}{0.15\textwidth}
-%\begin{tikzpicture}
-%  \draw[red, very thick, dashed] (0,0,) -- (1,0.1);
-%\end{tikzpicture}
-%\end{minipage}
-%
-%\vspace{1em}
-%
-%Styles can be named and defined locally or globally
-%
-%\begin{tikzcode}
-%\tikzset{my style/.style={tikz options}}
-%\tikzstyle{my style}=[tikz options]       % deprecated
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%example
-%
-%\begin{minipage}{0.9\textwidth}
-%\begin{tikzcode}
-%\tikzset{my dot/.style={blue, fill=green, thick}}
-%\draw[my dot] (0,0) circle [radius=0.1];
-%\draw[my dot] (0.1,0.4) circle [radius=0.1];
-%\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
-%\end{tikzcode}
-%\end{minipage}
-%\begin{minipage}{0.05\textwidth}
-%\begin{tikzpicture}
-%\tikzset{my dot/.style={blue, fill=green, thick}}
-%\draw[my dot] (0,0) circle [radius=0.1];
-%\draw[my dot] (0.1,0.4) circle [radius=0.1];
-%\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
-%\end{tikzpicture}
-%\end{minipage}
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%\section{Exercises}
-%\subsection{UML Activity Diagram}
-%\begin{frame}{Exercise 1: UML Activity Diagram}
-%
-%\note{
-%
-%}
-%
-%\input{tikz_bilder/exercise_uml.tex}
-%
-%\end{frame}
-%
-%%*****************************************  
-%
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\tikzset{start/.style	={circle,minimum width=0.3cm,
-%                       minimum height=0.3cm, draw, fill}}
-%\node[start] (start) {};
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\node[start] (start) {};
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\tikzset{activity/.style={rectangle,minimum width=1cm,
-%                 minimum height=0.5cm, rounded corners=5pt, draw}}
-%\node[activity, below of = start] (action1) {wake up};
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\tikzset{decision/.style={diamond,minimum width=1cm,
-%                         minimum height=1cm, draw}}
-%\node[decision,below = of  action1](decision1){tired?};
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\node[decision,below = of  action1](decision1){tired?};
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\node[activity, below = of decision1] (action2) {start the day};
-%\node[activity, right = of action2] (action3) {drink coffee};
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\node[decision,below = of  action1](decision1){tired?};
-%\node[activity, below = of  decision1] (action2) {start the day};
-%\node[activity, right = of action2] (action3) {drink coffee};
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\tikzset{end/.style={draw,double=white, circle,
-%               inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
-%\node[end,below of = action2](end){};
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\node[decision,below = of  action1](decision1){tired?};
-%\node[activity, below = of  decision1] (action2) {start the day};
-%\node[activity, right = of action2] (action3) {drink coffee};
-%\node[end,below of = action2](end){};
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\draw[->](start) -- (action1);
-%\draw[->](action1) -- (decision1);
-%\draw[->](action3) -- (action2);
-%\draw[->](action2) -- (end);
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\node[decision,below = of  action1](decision1){tired?};
-%\node[activity, below = of  decision1] (action2) {start the day};
-%\node[activity, right = of action2] (action3) {drink coffee};
-%\node[end,below of = action2](end){};
-%\draw[->](start) -- (action1);
-%\draw[->](action1) -- (decision1);
-%\draw[->](action3) -- (action2);
-%\draw[->](action2) -- (end);
-%\end{tikzpicture}
-%
-%
-%\end{frame}
-%
-%%*****************************************
-%  
-%
-%\begin{frame}[fragile]{Exercise 1: UML Activity Diagram}
-%
-%
-%\begin{tikzcode}
-%\draw[->](decision1) -- node [left,very near start]{no} (action2);
-%\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
-%\end{tikzcode}
-%
-%\vspace{1em}
-%
-%\begin{tikzpicture}[scale=0.7,transform shape]
-%\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-%\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-%\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
-%\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
-%\node[start] (start) {};
-%\node[activity, below of = start] (action1) {wake up};
-%\node[decision,below = of  action1](decision1){tired?};
-%\node[activity, below = of  decision1] (action2) {start the day};
-%\node[activity, right = of action2] (action3) {drink coffee};
-%\node[end,below of = action2](end){};
-%\draw[->](start) -- (action1);
-%\draw[->](action1) -- (decision1);
-%\draw[->](action3) -- (action2);
-%\draw[->](action2) -- (end);
-%\draw[->](decision1) -- node [left,very near start]{no} (action2);
-%\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
-%\end{tikzpicture}
-%
-%\end{frame}
-%%*****************************************
-%
-%\begin{frame}[fragile, allowframebreaks]{Exercise 1: UML Activity Diagram - Solution}
-%
-%\tikzcodefile{tikz_bilder/exercise_uml.tex}
-%
-%\end{frame}
-%
-%%*****************************************
-%
-%\section{outlook}
-%
-%\subsection{Feynman-Diagram}
-%
-%\begin{frame}{Feynman Diagram}
-%
-%\input{tikz_bilder/exercise_feynman.tex}
-%  
-%\end{frame}
-%  
-%
-%
-%%*****************************************
-%
-%
-%
-%\begin{frame}[fragile, allowframebreaks]{ Feynman Diagram - Code}
-%
-%\tikzcodefile{tikz_bilder/exercise_feynman.tex}
-%  
-%\end{frame}
-%
-%
-%
-%%*****************************************
-%
-%\subsection{Plotting Data}
-%
-%\begin{frame}{Plotting Data}
-%
-%\note{
-%  - Using plots from different tools, these would look differently
-%  - Formulas in plots
-%  - Line width adaptation
-%  - Scaling effects
-%  - nicer view
-%  
-%  more information: Chapter 19 of the official documentation
-%}
-%
-%\input{tikz_bilder/exercise_plot.tex}
-%
-%\end{frame}
-%
-%%*****************************************
-%
-%\begin{frame}[fragile]{Plotting data - Code}
-%
-%\tikzcodefile{tikz_bilder/exercise_plot.tex}
-%
-%\end{frame}
-%%*****************************************
-%\subsection{Mind Map}
-%\begin{frame}{Mind Map}
-%\input{tikz_bilder/mindmap.tex}
-%\end{frame}
-%
-%%*****************************************
-%
-%\begin{frame}[fragile, allowframebreaks]{Mind Map - Code}
-%
-%\tikzcodefile{tikz_bilder/mindmap.tex}
-%
-%\end{frame}
-%
-%
-%%*****************************************
-%\section{Fancy Examples}
-%\subsection{Polarizing Microscope}
-%\begin{frame}{Fancy Examples - Polarizing Microscope}
-%\input{tikz_bilder/fancy_pic.tex}
-%\end{frame}
-%
-%%*****************************************
-%
-%\subsection{Polarizing Microscope}
-%\begin{frame}{Fancy Examples - Polarizing Microscope}
-%\input{tikz_bilder/magnetic.tex}
-%\end{frame}
-%
-%%*****************************************
-%\section{}
-%\newcommand{\reflink}[2]{#1\\\hspace{1.5em}{\color{blue}\begin{small}\href{#2}{#2}\end{small}}\\[1ex]}
-%\begin{frame}{More information}
-%
-%\reflink{Website with nice TikZ examples:}%
-%{http://www.texample.net/tikz/examples}
-%
-%\reflink{A very minimal introduction to TikZ - A short and good introduction:}%
-%{http://cremeronline.com/LaTeX/minimaltikz.pdf}
-%
-%\reflink{TikZ \ PGF Manual (Version 3.0) - great resource written in clear, comprehensible language:}%
-%{http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf}
-%
-%\reflink{TikZ Cheat Sheet - Short cheatsheet far from being complete:}%
-%{http://home.snc.edu/andershendrickson/tex/TikZcheatsheet.pdf}
-%
-%\reflink{This tutorial with all the sources}%
-%{https://github.com/camstutz/tikz\_tutorial}
-%
-%\end{frame}
-%%*****************************************
-%
-%\begin{frame}
-%
-%\vspace{1cm}  
-%\begin{center}
-%  \begin{Huge}Thank you for your attention\end{Huge}
-%\end{center}
-%  
-%\end{frame}
-%
-%%*****************************************
-%\appendix
-%%\beginbackup
-%
-%%\begin{frame}[allowframebreaks]{References}
-%%\printbibliography
-%%\end{frame}
-%
-%%\backupend
+
+%\backupend}
 
 \end{document}
