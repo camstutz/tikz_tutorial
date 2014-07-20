@@ -155,7 +155,10 @@
 \hspace*{6cm}
 \begin{minipage}{3cm}
 \input{tikz_bilder/helix.tex}
-\end{minipage}
+\end{minipage}\\
+\begin{footnotesize}
+\hfill{}Source: http://www.texample.net
+\end{footnotesize}
 
 \end{frame}
 
@@ -171,7 +174,9 @@
 	\item combined with \LaTeX-Beamer class: graphics for presentations 
 \end{itemize}
 
-But be warned! It is not easy to learn.
+\vspace{2ex}
+
+{\color{kit-blue100}But be warned! It is not easy to learn.}
 
 \end{frame}
 
@@ -180,7 +185,7 @@ But be warned! It is not easy to learn.
 \begin{frame}[fragile]{Scaling Effects}
 
 \begin{tikzpicture}
-\matrix[column sep=0.5cm] {
+\matrix[column sep=0cm] {
 & \node {Raster Graphic (JPG)};
 & \node {Vector Graphic (PDF)};
 & \node {TikZ};
@@ -276,12 +281,12 @@ But be warned! It is not easy to learn.
   
 \begin{minipage}{0.55\textwidth}
 \begin{tikzcode}
-\draw (1,1) circle (0.5);
+\draw (0,0) circle (0.5);
 \end{tikzcode}
 \end{minipage}%
 \begin{minipage}{0.2\textwidth}
   \begin{tikzpicture}
-  \draw (1,1) circle (0.5);
+  \draw (0,0) circle (0.5);
 \end{tikzpicture}
 \end{minipage}
 
@@ -292,14 +297,14 @@ But be warned! It is not easy to learn.
 \begin{frame}[fragile]{Coordinates}
 
 \begin{minipage}{0.78\textwidth}
-Cartesian Coordinates
+Cartesian Coordinates \texttt{(x,y)}
 \begin{tikzcode}
 \draw[blue] (0,0) -- (2,1);
 \end{tikzcode}
 \end{minipage}%
 \begin{minipage}{0.2\textwidth}
 \begin{tikzpicture}[scale=0.8]
-  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.2);
   \draw[thick,blue] (0,0) -- (2,1);
 \end{tikzpicture}
 \end{minipage}
@@ -307,7 +312,7 @@ Cartesian Coordinates
 \vspace{1ex}
 
 \begin{minipage}{0.78\textwidth}
-Polar coordinates
+Polar coordinates \texttt{(angle:radius)}
 \begin{tikzcode}
 \draw[blue] (0,0) -- (45:1.7);
 \end{tikzcode}
@@ -322,15 +327,15 @@ Polar coordinates
 \vspace{1ex}
   
 \begin{minipage}{0.78\textwidth}
-Relative Coordinates
+Relative Coordinates \texttt{++(rel\_x,rel\_y)}
 \begin{tikzcode}
-\draw[blue] (0,0) -- ++(0.5,0.5) -- ++(1,0) --
-            ++(0.5,0.5);
+\draw[blue] (0,0) -- ++(0.5,0.5) -- ++(1,0)
+            -- ++(0.5,0.5);
 \end{tikzcode}
 \end{minipage}%
 \begin{minipage}{0.2\textwidth}
   \begin{tikzpicture}[scale=0.8]
-  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.2);
   \draw[thick, blue] (0,0) -- ++(0.5,0.5) -- ++(1,0) -- ++(0.5,0.5);
 \end{tikzpicture}
 \end{minipage}
@@ -348,7 +353,7 @@ Define Coordinates
 \end{minipage}%
 \begin{minipage}{0.2\textwidth}
   \begin{tikzpicture}[scale=0.8]
-  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.5);
+  \draw[step=1,gray,very thin] (-0.2,-0.2) grid (2.2,1.2);
   \coordinate (A) at (0,0);
   \coordinate (B) at (1,1);
   \coordinate (C) at (2,0);
@@ -420,12 +425,12 @@ Styles are defined by \texttt{[]} behind a command
 
 \begin{minipage}{0.80\textwidth}
 \begin{tikzcode}
-\draw[red, very thick, dashed] (0,0) -- (1,0.1);
+\draw[red,very thick,dashed] (0,0) -- (1,0.1);
 \end{tikzcode}
 \end{minipage}
 \begin{minipage}{0.15\textwidth}
 \begin{tikzpicture}
-  \draw[red, very thick, dashed] (0,0,) -- (1,0.1);
+  \draw[red,very thick,dashed] (0,0,) -- (1,0.1);
 \end{tikzpicture}
 \end{minipage}
 
@@ -444,18 +449,18 @@ example
 
 \begin{minipage}{0.9\textwidth}
 \begin{tikzcode}
-\tikzset{my dot/.style={blue, fill=green, thick}}
-\draw[my dot] (0,0) circle [radius=0.1];
-\draw[my dot] (0.1,0.4) circle [radius=0.1];
-\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\tikzset{my dot/.style={blue,fill=green,thick}}
+\draw[my dot] (0,0) circle (0.2);
+\draw[my dot] (0.1,0.6) circle (0.2);
+\draw[my dot, fill=red] (0.8,0.2) circle (0.2);
 \end{tikzcode}
 \end{minipage}
 \begin{minipage}{0.05\textwidth}
 \begin{tikzpicture}
-\tikzset{my dot/.style={blue, fill=green, thick}}
-\draw[my dot] (0,0) circle [radius=0.1];
-\draw[my dot] (0.1,0.4) circle [radius=0.1];
-\draw[my dot, fill=red] (0.3,0.1) circle [radius=0.1];
+\tikzset{my dot/.style={blue,fill=green,thick}}
+\draw[my dot] (0,0) circle [radius=0.2];
+\draw[my dot] (0.1,0.6) circle [radius=0.2];
+\draw[my dot, fill=red] (0.8,0.2) circle [radius=0.2];
 \end{tikzpicture}
 \end{minipage}
 
@@ -676,8 +681,8 @@ example
 \end{tikzpicture}
 
 \end{frame}
-%*****************************************
 
+%*****************************************
 \begin{frame}[fragile, allowframebreaks]{Exercise 1: UML Activity Diagram - Solution}
 
 \tikzcodefile{tikz_bilder/exercise_uml.tex}
@@ -685,35 +690,40 @@ example
 \end{frame}
 
 %*****************************************
+\subsection{Proton-proton collision}
+\begin{frame}{Exercise 2: p-p collision}
 
+\begin{center}
+\input{tikz_bilder/exercise_protoncollision.tex}
+\end{center}
+  
+\end{frame}
+  
+%*****************************************
+\begin{frame}[fragile, allowframebreaks]{Exercise 2: p-p collision - Solution}
+
+\tikzcodefile{tikz_bilder/exercise_protoncollision.tex}
+  
+\end{frame}
+
+%*****************************************
 \section{outlook}
-
 \subsection{Feynman-Diagram}
-
 \begin{frame}{Feynman Diagram}
 
 \input{tikz_bilder/exercise_feynman.tex}
   
 \end{frame}
   
-
-
 %*****************************************
-
-
-
 \begin{frame}[fragile, allowframebreaks]{ Feynman Diagram - Code}
 
 \tikzcodefile{tikz_bilder/exercise_feynman.tex}
   
 \end{frame}
 
-
-
 %*****************************************
-
 \subsection{Plotting Data}
-
 \begin{frame}{Plotting Data}
 
 \note{
@@ -731,7 +741,6 @@ example
 \end{frame}
 
 %*****************************************
-
 \begin{frame}[fragile]{Plotting data - Code}
 
 \tikzcodefile{tikz_bilder/exercise_plot.tex}
@@ -744,7 +753,6 @@ example
 \end{frame}
 
 %*****************************************
-
 \begin{frame}[fragile, allowframebreaks]{Mind Map - Code}
 
 \tikzcodefile{tikz_bilder/mindmap.tex}
@@ -755,15 +763,26 @@ example
 %*****************************************
 \section{Fancy Examples}
 \subsection{Polarizing Microscope}
-\begin{frame}{Fancy Examples - Polarizing Microscope}
-\input{tikz_bilder/fancy_pic.tex}
+\begin{frame}[fragile]{Fancy Examples - Polarizing Microscope}
+
+\centerline{\input{tikz_bilder/fancy_pic.tex}}
+\begin{footnotesize}
+\vspace{1ex}
+\hfill{}Source: http://www.texample.net
+\end{footnotesize}
+
 \end{frame}
 
 %*****************************************
-
 \subsection{Polarizing Microscope}
-\begin{frame}{Fancy Examples - Polarizing Microscope}
-\input{tikz_bilder/magnetic.tex}
+\begin{frame}{Fancy Examples - Dipolar magnetic field}
+
+\centerline{\input{tikz_bilder/magnetic.tex}}
+\begin{footnotesize}
+\vspace{1ex}
+\hfill{}Source: http://www.texample.net
+\end{footnotesize}
+
 \end{frame}
 
 %*****************************************
@@ -788,7 +807,6 @@ example
 
 \end{frame}
 %*****************************************
-
 \begin{frame}
 
 \vspace{1cm}  
