@@ -1,0 +1,21 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+\draw[blue, fill=blue] (0,4) -| (4,3) -| (2.5,0) -- (1.5,0) |- (0,3) -- cycle;
+\draw[red, fill=red]  (5,0) |- (6,2.5) -- (6,0) -- cycle;
+\draw[red, fill=red]  (5.5,3.5) circle [radius=0.5];
+\draw[green, fill=green] (7,0) |- (8,4) -- (8,1.5) -- (10,2.5) -- (10,1.5) -- (8,1)
+                      -- (10,1) -- (10,0) -- (8,0.5) -- (8,0) -- cycle;
+\draw[yellow, fill=yellow] (11,0) -- (11,1) -- (12,3) -- (11,3) |- (13,4) -- (13,3)
+                      -- (12,1) -- (13,1) -- (13,0) -- cycle;
+\end{tikzpicture}
+
+\hspace{20pt}
+
+\Huge is installed!
+
+\end{document}
