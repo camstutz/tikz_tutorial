@@ -13,6 +13,10 @@
 \node[activity, right = of action2] (action3) {drink coffee};
 \node[end,below of = action2](end){};
 
+
+
+
+
 \draw[->](start) -- (action1);
 \draw[->](action1) -- (decision1);
 \draw[->](decision1) -- node [left,very near start]{no} (action2);

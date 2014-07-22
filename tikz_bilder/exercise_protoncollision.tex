@@ -10,7 +10,7 @@
 		minimum width=0.8cm,minimum height=0.8cm, draw}}
 \tikzset{positron/.style={circle, black, thick, fill=yellow, 
 		minimum width=1.2cm,minimum height=1.2cm, draw}}
-\tikzset{myarrow/.style={-latex, shorten >=0.5cm, shorten <=0.5cm, 
+\tikzset{myarrow/.style={->, shorten >=0.5cm, shorten <=0.5cm, 
 		very thick}}
 
 \node[proton] (proton1) {};
@@ -18,20 +18,20 @@
 \node[proton, below = 5cm] (proton2) {};
 \node[font=\Huge] at (proton2) {\textbf{p}};
 \node[collision,  below right = 2.125cm and 4cm of proton1] 
-		(collision1) {};
-\node[positron, right = 8cm of proton1] (positron1) {};
-\node[font=\Huge] at (positron1) {\textbf{e$^+$}};
-\node[neutrino, right = 8cm of proton2] (neutrino1) {};
-\node[font=\Huge] at (neutrino1) {\textbf{$\nu$}};
+		(collision) {};
+\node[positron, right = 8cm of proton1] (positron) {};
+\node[font=\Huge] at (positron) {\textbf{e$^+$}};
+\node[neutrino, right = 8cm of proton2] (neutrino) {};
+\node[font=\Huge] at (neutrino) {\textbf{$\nu$}};
 \node[proton, below right = 1.25cm and 10cm of proton1] 
 		(proton3) {};
 \node[font=\Huge] at (proton3) {\textbf{p}};
-\node[neutron, below of = proton3] (neutron1) {};
-\node[font=\Huge] at (neutron1) {\textbf{n}};
+\node[neutron, below of = proton3] (neutron) {};
+\node[font=\Huge] at (neutron) {\textbf{n}};
 
-\draw[myarrow] (proton1) -- (collision1);
-\draw[myarrow] (proton2) -- (collision1);
-\draw[myarrow] (collision1) -- (positron1);
-\draw[myarrow] (collision1) -- (neutrino1);
-\draw[myarrow] (collision1) -- (proton3.south west);
+\draw[myarrow] (proton1) -- (collision);
+\draw[myarrow] (proton2) -- (collision);
+\draw[myarrow] (collision) -- (positron);
+\draw[myarrow] (collision) -- (neutrino);
+\draw[myarrow] (collision) -- (proton3.south west);
 \end{tikzpicture}
