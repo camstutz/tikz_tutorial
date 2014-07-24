@@ -1,0 +1,91 @@
+\documentclass[a4paper,12pt,toc=bibliography,twoside,numbers=noenddot]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\documentclass[a4paper,12pt,titlepage,bibtotoc,idxtotoc,twoside,BCOR=25mm]{scrreprt}
+% LOAD PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Randbreite etc einstellen
+\usepackage{geometry}
+\geometry{left=3.5cm,right=3cm,bottom=30mm,top=30mm}%,top=2cm,bottom=2cm,showframe}
+
+% Additional math & symbols by the American Mathematical Society
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% Use T1 encoded fonts
+\usepackage[T1]{fontenc}
+% Multi language support
+\usepackage[ngerman, english]{babel}
+%Umlaute
+\usepackage[utf8]{inputenc} 
+
+%si units
+\usepackage{siunitx}
+
+\usepackage{upgreek}
+
+% Extended graphics support
+\usepackage{graphicx,graphics,psfrag}
+\usepackage{epstopdf}
+\usepackage{makeidx}
+\usepackage{caption}
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+%\tikzstyle directed=[postaction={decorate,decoration={markings,
+%    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+%\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+%    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BEGIN DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+
+
+\begin{document}
+
+\begin{center} 
+	\textbf{\Large TikZ cheat sheet for exercise 2}\\
+	\vspace{1cm}
+	\input{../tikz_bilder/exercise_protoncollision.tex}
+\end{center}
+
+		
+\section*{styles}
+%\tikzset{mystyle/.style={options, draw}}
+\begin{lstlisting}
+\tikzset{mystyle/.style={options}
+\end{lstlisting}
+\underline{\textbf{options:}}\\ \\
+\textbf{shape:} circle, rectangle, star,..., thick, very thick,...\\
+\phantom{x} star: star points=X, star point ratio=Y\\
+\phantom{x} arrow: -latex, ->, <-, |->, ..., shorten >=Xcm, shorten <=Ycm\\
+\textbf{color:} black, blue,..., fill=red, green,...\\
+\textbf{size:} minimum width=Xcm, minimum height=Ycm
+\vspace{1cm}
+
+\section*{nodes}
+\begin{lstlisting}
+\node[options] (coordinatename) {text};
+\node[options] at (coordinate) {text};
+\end{lstlisting}
+\underline{\textbf{options:}}\\
+\textbf{font:} font={\tiny \textbackslash tiny}, {\normalsize \textbackslash normalsize}, {\Huge \textbackslash Huge}...\\
+\textbf{position:} based in coordinate: below, above, right, left, below right, ...\\
+\textbf{syntax:} below = Xcm, right = Xcm of coordinate, below right = Xcm and Ycm of coordinate
+\vspace{1cm}
+
+\section*{draw}
+\begin{lstlisting}
+\draw[options] (coordinate1) -- (coordinate2);
+\draw[options] (coordinate1) -- (coordinate2.south west);
+\end{lstlisting}
+north, east, south, west, north east,... of coordinate
+
+
+\end{document}
