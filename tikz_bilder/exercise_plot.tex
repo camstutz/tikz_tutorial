@@ -13,7 +13,7 @@
     \node at (-6pt,\y) [anchor=east] {\footnotesize $\ytext$};
   
   \draw plot[only marks, mark=x, mark options={kit-blue100, thick}]
-      file {working_material/measurement.dat};
+      file {tikz_bilder/measurement.dat};
   \draw[color=kit-green100] plot[smooth] (\x, {1+pow((1/3)*\x, 2)})
       node[right, xshift=6mm] {$f(x) = 1+\frac{1}{3}x^{2}$};
 

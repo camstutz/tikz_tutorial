@@ -1,10 +1,14 @@
 %\usetikzlibrary{shapes}
 \begin{tikzpicture}
   
-\tikzset{activity/.style={rectangle,minimum width=1cm,minimum height=0.5cm, rounded corners=5pt, draw}}
-\tikzset{decision/.style={diamond,minimum width=1cm,minimum height=1cm, draw}}
-\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,minimum width=0.3cm,minimum height=0.3cm, fill}}
-\tikzset{start/.style={circle,minimum width=0.3cm,minimum height=0.3cm, draw, fill}}
+\tikzset{activity/.style={rectangle,minimum width=1cm,
+         minimum height=0.5cm, rounded corners=5pt, draw}}
+\tikzset{decision/.style={diamond,minimum width=1cm,
+         minimum height=1cm, draw}}
+\tikzset{end/.style={draw,double=white, circle, inner sep=1pt,
+         minimum width=0.3cm,minimum height=0.3cm, fill}}
+\tikzset{start/.style={circle,minimum width=0.3cm,
+         minimum height=0.3cm, draw, fill}}
 
 \node[start] (start) {};
 \node[activity, below of = start] (action1) {wake up};
@@ -14,13 +18,10 @@
 \node[end,below of = action2](end){};
 
 
-
-
-
 \draw[->](start) -- (action1);
 \draw[->](action1) -- (decision1);
 \draw[->](decision1) -- node [left,very near start]{no} (action2);
-\draw[->](decision1) -| node [above,very near start]{yes} (action3) ;
+\draw[->](decision1) -| node [above,very near start]{yes} (action3);
 \draw[->](action3) -- (action2);
 \draw[->](action2) -- (end);
 
