@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,toc=bibliography,twoside,numbers=noenddot]{scrbook}
+\documentclass[a4paper,10pt,toc=bibliography,twoside,numbers=noenddot]{scrbook}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\documentclass[a4paper,12pt,titlepage,bibtotoc,idxtotoc,twoside,BCOR=25mm]{scrreprt}
 % LOAD PACKAGES
@@ -55,6 +55,13 @@
 	\input{../tikz_bilder/exercise_protoncollision.tex}
 \end{center}
 
+\section*{libraries}
+
+\begin{lstlisting}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes}
+\end{lstlisting}
+\vspace{0.8cm}
 		
 \section*{styles}
 %\tikzset{mystyle/.style={options, draw}}
@@ -67,7 +74,7 @@
 \phantom{x} arrow: -latex, ->, <-, |->, ..., shorten >=Xcm, shorten <=Ycm\\
 \textbf{color:} black, blue,..., fill=red, green,...\\
 \textbf{size:} minimum width=Xcm, minimum height=Ycm
-\vspace{1cm}
+\vspace{0.8cm}
 
 \section*{nodes}
 \begin{lstlisting}
@@ -78,7 +85,7 @@
 \textbf{font:} font={\tiny \textbackslash tiny}, {\normalsize \textbackslash normalsize}, {\Huge \textbackslash Huge}...\\
 \textbf{position:} based in coordinate: below, above, right, left, below right, ...\\
 \textbf{syntax:} below = Xcm, right = Xcm of coordinate, below right = Xcm and Ycm of coordinate
-\vspace{1cm}
+\vspace{0.8cm}
 
 \section*{draw}
 \begin{lstlisting}
@@ -86,6 +93,5 @@
 \draw[options] (coordinate1) -- (coordinate2.south west);
 \end{lstlisting}
 north, east, south, west, north east,... of coordinate
-
 
 \end{document}
